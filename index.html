@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maqueta web Compromiso Bogotá</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500&display=swap" rel="stylesheet">
+<style>
+/* Concepto: sitio institucional de una red. Las "o" del logo (círculos amarillo y ladrillo) son el recurso gráfico: marcan cifras, territorios y pasos. Fondo nieve cálido, gris asfalto para texto y bloques de cierre. Paleta y tipografía del Manual de Marca CB v2. */
+:root{
+  --gris:#3A3D42; --gris-2:#2C2F33; --ladrillo:#D2452D; --ladrillo-osc:#B5381F;
+  --amarillo:#F7BB1C; --crema:#FCEFC9; --nieve:#F5F2ED; --blanco:#FFFFFF;
+  --gm:#62656B; --linea:#DDD8CF;
+  --f:"Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --max:1180px; --r:22px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--nieve);color:var(--gris);font-family:var(--f);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{margin:0;text-wrap:balance;letter-spacing:-.02em;line-height:1.08}
+p{margin:0}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.eyebrow{font-weight:700;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--ladrillo);display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--amarillo);flex:none}
+.h-xl{font-weight:900;font-size:clamp(34px,5.4vw,64px)}
+.h-l{font-weight:900;font-size:clamp(28px,3.8vw,46px)}
+.h-m{font-weight:800;font-size:clamp(21px,2.2vw,27px);line-height:1.2}
+.lead{font-size:clamp(18px,1.7vw,21px);line-height:1.6;max-width:62ch}
+.muted{color:var(--gm)}
+.btn{display:inline-flex;align-items:center;gap:12px;font:800 15px/1 var(--f);letter-spacing:.04em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;border-radius:999px;padding:18px 28px;transition:transform .2s,background .2s,box-shadow .2s}
+.btn .dot{width:10px;height:10px;border-radius:50%;background:currentColor;flex:none}
+.btn-primary{background:var(--ladrillo);color:var(--blanco);box-shadow:0 8px 22px -10px rgba(210,69,45,.7)}
+.btn-primary:hover{background:var(--ladrillo-osc);transform:translateY(-2px)}
+.btn-yellow{background:var(--amarillo);color:var(--gris)}
+.btn-yellow:hover{transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--gris);box-shadow:inset 0 0 0 2px var(--gris)}
+.btn-ghost:hover{background:var(--gris);color:var(--blanco)}
+:focus-visible{outline:3px solid var(--amarillo);outline-offset:3px;border-radius:6px}
+
+/* Barra de maqueta */
+.mockbar{background:var(--gris-2);color:#E9E6E0;font-size:13px}
+.mockbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:8px;flex-wrap:wrap}
+.mockbar b{color:var(--amarillo)}
+.devtoggle{font:700 12px/1 var(--f);letter-spacing:.06em;text-transform:uppercase;background:transparent;color:#E9E6E0;border:1px solid #6b6e73;border-radius:999px;padding:8px 14px;cursor:pointer}
+.devtoggle[aria-pressed="true"]{background:var(--amarillo);color:var(--gris);border-color:var(--amarillo)}
+
+/* Header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--blanco)}
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--linea)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:84px}
+.brand img{height:54px;width:auto}
+nav.main{display:flex;align-items:center;gap:6px}
+nav.main a{font-weight:700;font-size:14.5px;text-decoration:none;padding:10px 14px;border-radius:999px;position:relative}
+nav.main a:hover{background:var(--nieve)}
+nav.main a.on::after{content:"";position:absolute;left:50%;bottom:2px;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;background:var(--ladrillo)}
+nav.main a.cta{background:var(--ladrillo);color:var(--blanco);margin-left:8px;padding:12px 22px}
+nav.main a.cta:hover{background:var(--ladrillo-osc)}
+nav.main a.cta.on::after{display:none}
+.burger{display:none;background:none;border:0;padding:10px;cursor:pointer}
+.burger span{display:block;width:26px;height:3px;border-radius:2px;background:var(--gris);margin:5px 0}
+@media (max-width:900px){
+  .burger{display:block}
+  nav.main{position:absolute;top:84px;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--blanco);padding:12px max(20px,env(safe-area-inset-right,0px)) 22px max(20px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--linea);gap:2px}
+  nav.main:not(.open){display:none}
+  nav.main a{padding:14px 12px;font-size:17px}
+  nav.main a.on::after{left:auto;right:16px;top:50%;margin-top:-3.5px}
+  nav.main a.cta{margin:10px 0 0;text-align:center}
+  .brand img{height:46px}
+}
+
+/* Notas de desarrollo */
+.dev{display:none}
+body.devmode .dev{display:inline-flex;align-items:flex-start;gap:8px;font:600 12.5px/1.45 var(--f);background:#E6F1FF;color:#123B6B;border:1.5px dashed #4F86C6;border-radius:10px;padding:8px 12px;margin:10px 0;max-width:640px;letter-spacing:0;text-transform:none}
+body.devmode .dev::before{content:"DEV";font-weight:900;font-size:10.5px;background:#4F86C6;color:#fff;border-radius:5px;padding:2px 6px;margin-top:1px}
+.dev-float{position:absolute;z-index:5;left:16px;top:16px}
+
+/* Páginas */
+.page{display:none}
+.page.on{display:block;animation:in .45s ease}
+@keyframes in{from{opacity:.4;transform:translateY(8px)}to{opacity:1;transform:none}}
+section{padding-block:clamp(64px,8vw,110px)}
+
+/* HOME: reel */
+.reel{position:relative;height:clamp(440px,74vh,720px);overflow:hidden;background:var(--gris)}
+.reel .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s ease}
+.reel .slide.on{opacity:1}
+.reel .slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.04)}
+.reel .slide.on img{animation:kb 7s ease-out forwards}
+@keyframes kb{from{transform:scale(1.04)}to{transform:scale(1.12)}}
+.reel::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(44,47,51,.15) 0%,rgba(44,47,51,.05) 40%,rgba(44,47,51,.78) 100%)}
+.reel .claim{position:absolute;z-index:3;left:0;right:0;bottom:clamp(36px,6vw,70px)}
+.reel .claim h1{color:var(--blanco);font-weight:900;font-size:clamp(36px,6.2vw,80px);line-height:1.02;max-width:15ch;text-shadow:0 2px 24px rgba(0,0,0,.25)}
+.reel .claim h1 em{font-style:normal;color:var(--amarillo)}
+.reel .claim .row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.reel .dots{display:flex;gap:8px}
+.reel .dots button{width:11px;height:11px;border-radius:50%;border:2px solid var(--blanco);background:transparent;padding:0;cursor:pointer}
+.reel .dots button.on{background:var(--amarillo);border-color:var(--amarillo)}
+.reel .pause{font:700 12px/1 var(--f);letter-spacing:.06em;text-transform:uppercase;color:var(--blanco);background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:8px 14px;cursor:pointer;margin-left:10px}
+
+/* HOME: manifiesto */
+.manif{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,90px);align-items:center}
+.manif-txt{display:flex;flex-direction:column;gap:20px;max-width:58ch}
+.manif-txt p{font-size:clamp(18px,1.6vw,20px);line-height:1.65}
+.manif-txt p:first-child::first-letter{font-weight:900}
+.manif .por{margin-top:30px;background:var(--gris);color:var(--blanco);border-radius:var(--r);padding:34px 34px 36px;position:relative;overflow:hidden}
+.manif .por h2{font-weight:900;font-size:clamp(28px,3.2vw,40px)}
+.manif .por h2 span{color:var(--amarillo)}
+.manif .por::after{content:"";position:absolute;right:-60px;top:-60px;width:180px;height:180px;border-radius:50%;background:var(--ladrillo);opacity:.9}
+.manif .por>*{position:relative;z-index:1}
+.photo-stack{position:relative;min-height:520px}
+.photo-stack img{position:absolute;object-fit:cover;border-radius:50%}
+.photo-stack .a{width:78%;aspect-ratio:1;right:0;top:0;border:12px solid var(--amarillo)}
+.photo-stack .b{width:46%;aspect-ratio:1;left:0;bottom:0;border:10px solid var(--nieve);box-shadow:0 0 0 4px var(--ladrillo)}
+.photo-stack .c{position:absolute;width:64px;height:64px;border-radius:50%;background:var(--ladrillo);left:30%;top:6%}
+
+/* Banda súmate */
+.band-yellow{background:var(--amarillo);position:relative;overflow:hidden}
+.band-yellow .wrap{display:grid;grid-template-columns:1.3fr auto;gap:30px;align-items:center;position:relative;z-index:1}
+.band-yellow h2{font-weight:900;font-size:clamp(28px,3.6vw,44px)}
+.band-yellow p{font-size:18px;margin-top:12px;max-width:52ch}
+.band-yellow::before,.band-yellow::after{content:"";position:absolute;border-radius:50%}
+.band-yellow::before{width:340px;height:340px;right:-90px;bottom:-170px;background:rgba(255,255,255,.35)}
+.band-yellow::after{width:120px;height:120px;right:240px;top:-60px;background:var(--ladrillo);opacity:.95}
+
+/* Cifras */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.stat{background:var(--blanco);border-radius:var(--r);padding:28px 26px 26px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
+.stat .n{width:128px;height:128px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:31px;letter-spacing:-.03em;font-variant-numeric:tabular-nums;text-align:center;line-height:1}
+.stat:nth-child(3n+1) .n{background:var(--amarillo);color:var(--gris)}
+.stat:nth-child(3n+2) .n{background:var(--gris);color:var(--blanco)}
+.stat:nth-child(3n) .n{background:var(--ladrillo);color:var(--blanco)}
+.stat .n small{display:block;font-size:12px;font-weight:700;letter-spacing:.04em;margin-top:2px}
+.stat p{font-weight:600;font-size:16px;line-height:1.4;min-width:0}
+.statsband{background:var(--crema)}
+
+/* Desafíos teaser y página */
+.chal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
+.chal{background:var(--blanco);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.chal .ph{aspect-ratio:4/3;position:relative}
+.chal .ph img{width:100%;height:100%;object-fit:cover;transition:filter .4s}
+.chal:hover .ph img{filter:saturate(1.2)}
+.chal .num{z-index:2;position:absolute;left:16px;bottom:-22px;width:48px;height:48px;border-radius:50%;background:var(--amarillo);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;border:4px solid var(--blanco)}
+.chal .bd{padding:34px 22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.chal h3{font-weight:800;font-size:18px;line-height:1.2;text-transform:uppercase;letter-spacing:.01em}
+.chal p{font-size:15px;line-height:1.55;color:var(--gm)}
+.chal .go{margin-top:auto;padding-top:10px;font-weight:800;font-size:13.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ladrillo);text-decoration:none;display:inline-flex;gap:8px;align-items:center;background:none;border:0;cursor:pointer;font-family:var(--f);padding-left:0;text-align:left}
+.chal .go:hover{text-decoration:underline}
+
+/* Aliados */
+.aliados{background:var(--blanco)}
+.marquee{overflow:hidden;margin-top:36px;padding-block:6px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.marquee+.marquee{margin-top:18px}
+.marquee .track{display:flex;gap:18px;width:max-content;animation:mq 70s linear infinite;align-items:stretch}
+.marquee.rev .track{animation-direction:reverse;animation-duration:80s}
+.marquee:hover .track{animation-play-state:paused}
+.marquee .lg{flex:none;width:200px;height:110px;background:var(--nieve);border-radius:18px;display:flex;align-items:center;justify-content:center;padding:18px 22px}
+.marquee img{max-height:70px;max-width:100%;width:auto;object-fit:contain}
+@keyframes mq{to{transform:translateX(-50%)}}
+.logos{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:40px}
+.logos .lg{background:var(--blanco);border-radius:16px;aspect-ratio:3/2;display:flex;align-items:center;justify-content:center;padding:16px}
+.logos img{max-height:72px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.8;transition:filter .3s,opacity .3s}
+.logos .lg:hover img{filter:none;opacity:1}
+
+/* Page hero interior */
+.phero{background:var(--gris);color:var(--blanco);position:relative;overflow:hidden}
+.phero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center;padding-block:clamp(56px,7vw,96px)}
+.phero .lead{color:#E9E6E0;margin-top:20px}
+.phero .eyebrow{color:var(--amarillo)}
+.phero .eyebrow::before{background:var(--ladrillo)}
+.phero .circ{width:100%;max-width:380px;aspect-ratio:1;border-radius:50%;object-fit:cover;justify-self:end;border:12px solid var(--amarillo)}
+.phero::after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:var(--ladrillo);left:-90px;bottom:-120px;opacity:.9}
+
+/* Quiénes somos */
+.difs{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:40px}
+.dif{background:var(--blanco);border-radius:var(--r);padding:30px;display:grid;grid-template-columns:56px 1fr;gap:20px}
+.dif .c{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px}
+.dif:nth-child(1) .c{background:var(--amarillo)}
+.dif:nth-child(2) .c{background:var(--ladrillo);color:var(--blanco)}
+.dif:nth-child(3) .c{background:var(--gris);color:var(--blanco)}
+.dif:nth-child(4) .c{background:var(--crema);box-shadow:inset 0 0 0 3px var(--amarillo)}
+.dif h3{font-weight:800;font-size:20px;line-height:1.25;margin-bottom:8px}
+.dif p{color:var(--gm);font-size:16px}
+.quote{background:var(--gris);color:var(--blanco)}
+.quote .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,80px);align-items:center}
+.quote h2{font-weight:900;font-size:clamp(32px,4.4vw,56px)}
+.quote h2 .l2{color:var(--amarillo);display:block}
+.quote p{font-size:19px;color:#E9E6E0}
+
+/* Qué hacemos */
+.lid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,70px);align-items:center}
+.lid .img{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3.4}
+.lid .img img{width:100%;height:100%;object-fit:cover}
+.buscamos{margin-top:24px;background:var(--crema);border-radius:var(--r);padding:22px 24px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
+.buscamos .c{width:40px;height:40px;border-radius:50%;background:var(--amarillo);flex:none}
+.buscamos b{display:block;font-weight:800;margin-bottom:4px}
+.transv{display:inline-flex;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;background:var(--gris);color:var(--blanco);border-radius:999px;padding:8px 16px;margin-bottom:18px}
+.terr{background:var(--blanco)}
+.terr .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,70px);align-items:center}
+.route{display:flex;flex-direction:column;gap:0;position:relative}
+.loc{display:grid;grid-template-columns:86px 1fr;gap:20px;align-items:center;padding-block:14px;position:relative}
+.loc .c{width:86px;height:86px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-align:center;line-height:1.2;position:relative;z-index:1}
+.loc.hoy .c{background:var(--ladrillo);color:var(--blanco)}
+.loc.prox .c{background:var(--blanco);color:var(--gris);box-shadow:inset 0 0 0 3px var(--amarillo)}
+.loc h3{font-weight:900;font-size:28px}
+.loc span{font-size:15px;color:var(--gm)}
+.route::before{content:"";position:absolute;left:42px;top:50px;bottom:50px;border-left:3px dotted var(--amarillo)}
+
+/* Súmate */
+.profiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+.prof{background:var(--blanco);border:2px solid transparent;border-radius:var(--r);padding:24px 22px;text-align:left;font-family:var(--f);color:var(--gris);cursor:pointer;display:flex;flex-direction:column;gap:12px;transition:border-color .2s,transform .2s}
+.prof:hover{transform:translateY(-3px)}
+.prof[aria-pressed="true"]{border-color:var(--ladrillo);box-shadow:0 14px 30px -18px rgba(58,61,66,.5)}
+.prof .c{width:42px;height:42px;border-radius:50%;background:var(--nieve);display:flex;align-items:center;justify-content:center;font-weight:900}
+.prof[aria-pressed="true"] .c{background:var(--ladrillo);color:var(--blanco)}
+.prof b{font-weight:800;font-size:15.5px;line-height:1.3;text-transform:uppercase;letter-spacing:.01em}
+.prof span{font-size:14px;color:var(--gm);line-height:1.45}
+.formcard{margin-top:22px;background:var(--blanco);border-radius:28px;padding:clamp(24px,4vw,48px);display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,4vw,60px)}
+.formcard .intro h2{font-weight:900;font-size:clamp(24px,2.6vw,32px);margin-bottom:14px}
+.formcard .intro p{color:var(--gm)}
+.formcard .intro img{border-radius:50%;aspect-ratio:1;object-fit:cover;width:70%;margin-top:28px;border:10px solid var(--amarillo)}
+form .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fld{display:flex;flex-direction:column;gap:7px;min-width:0}
+.fld.full{grid-column:1/-1}
+label.l{font-weight:700;font-size:14px}
+label.l .req{color:var(--ladrillo)}
+input[type=text],input[type=tel],input[type=email],textarea,select{font:500 16px/1.4 var(--f);color:var(--gris);background:var(--nieve);border:1.5px solid var(--linea);border-radius:12px;padding:13px 14px;width:100%}
+textarea{min-height:92px;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gris);background:var(--blanco)}
+fieldset{border:0;padding:0;margin:22px 0 0;grid-column:1/-1}
+legend{font-weight:800;font-size:16px;margin-bottom:12px}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ck{display:flex;gap:12px;align-items:flex-start;background:var(--nieve);border-radius:12px;padding:12px 14px;cursor:pointer;font-size:15px;line-height:1.4}
+.ck input{width:20px;height:20px;accent-color:var(--ladrillo);margin:1px 0 0;flex:none}
+.otro{margin-top:10px}
+.legal{grid-column:1/-1;margin-top:20px;display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.5;color:var(--gm)}
+.legal input{width:20px;height:20px;accent-color:var(--ladrillo);margin-top:2px;flex:none}
+.legal a{color:var(--ladrillo);font-weight:700}
+.submit{grid-column:1/-1;margin-top:22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.err{color:var(--ladrillo);font-weight:700;font-size:14px}
+.ok{display:none;text-align:left;padding:10px 0}
+.ok .c{width:70px;height:70px;border-radius:50%;background:var(--amarillo);display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:900;margin-bottom:18px}
+.ok h3{font-weight:900;font-size:28px;margin-bottom:10px}
+.sent form{display:none}.sent .ok{display:block}
+.iniciativa-pill{display:none;margin-bottom:16px;background:var(--crema);border-radius:12px;padding:12px 14px;font-size:14.5px}
+.iniciativa-pill.on{display:block}
+
+/* Contacto */
+.contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:40px}
+.person{background:var(--blanco);border-radius:var(--r);padding:30px;display:grid;grid-template-columns:72px 1fr;gap:20px;align-items:center}
+.person .c{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:24px}
+.person:nth-child(1) .c{background:var(--amarillo)}
+.person:nth-child(2) .c{background:var(--ladrillo);color:var(--blanco)}
+.person h3{font-weight:800;font-size:20px}
+.person .role{font-size:14.5px;color:var(--gm);margin:2px 0 10px}
+.mail{display:inline-flex;gap:10px;align-items:center;flex-wrap:wrap}
+.mail a{font-weight:700;color:var(--gris);text-decoration-color:var(--amarillo);text-decoration-thickness:3px;text-underline-offset:4px;word-break:break-all}
+.copy{font:700 11.5px/1 var(--f);letter-spacing:.06em;text-transform:uppercase;border:1.5px solid var(--linea);background:var(--nieve);border-radius:999px;padding:7px 11px;cursor:pointer;color:var(--gris)}
+.socials{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.soc{display:inline-flex;align-items:center;gap:12px;background:var(--blanco);border-radius:999px;padding:10px 20px 10px 10px;text-decoration:none;font-weight:700}
+.soc svg{width:38px;height:38px;flex:none}
+.city{margin-top:18px;background:var(--gris);color:var(--blanco);border-radius:var(--r);overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
+.city .t{padding:34px}
+.city img{width:100%;height:100%;object-fit:cover;min-height:240px}
+
+/* Política */
+.policy{max-width:820px}
+.policy h2{font-weight:800;font-size:22px;margin:38px 0 12px}
+.policy p,.policy li{font-size:16.5px;line-height:1.7;color:#4a4d52}
+.policy ul{padding-left:20px;margin:10px 0}
+.policy .ph{background:var(--crema);padding:1px 6px;border-radius:5px;font-weight:700;color:var(--gris)}
+.notice{background:var(--crema);border-radius:16px;padding:18px 20px;font-size:15px;margin-top:24px}
+
+/* Footer */
+footer.site{background:var(--gris-2);color:#D9D6D0;padding-block:64px 30px;margin-top:0}
+footer .top{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:36px}
+footer .logo{height:76px;width:auto}
+footer .tag{margin-top:18px;font-weight:700;color:var(--blanco);font-size:17px;max-width:28ch;line-height:1.35}
+footer h4{margin:0 0 14px;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--amarillo)}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:15px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--amarillo)}
+footer .bottom{margin-top:48px;padding-top:22px;border-top:1px solid #4a4d52;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13.5px;color:#a8a6a1}
+
+/* Responsive */
+@media (max-width:1060px){
+  .chal-grid{grid-template-columns:repeat(2,1fr)}
+  .profiles{grid-template-columns:repeat(2,1fr)}
+  .logos{grid-template-columns:repeat(4,1fr)}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  footer .top{grid-template-columns:1fr 1fr}
+}
+@media (max-width:820px){
+  .manif,.phero .wrap,.quote .wrap,.lid,.terr .wrap,.formcard,.city,.band-yellow .wrap{grid-template-columns:1fr}
+  .photo-stack{min-height:0;aspect-ratio:1/0.9}
+  .phero .circ{justify-self:start;max-width:240px}
+  .difs,.contact-grid{grid-template-columns:1fr}
+  .formcard .intro img{display:none}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .chal-grid,.profiles,.stats,.checks,form .grid{grid-template-columns:1fr}
+  .logos{grid-template-columns:repeat(2,1fr)}
+  .stat .n{width:96px;height:96px;font-size:25px}
+  .dif,.person{grid-template-columns:1fr}
+  footer .top{grid-template-columns:1fr}
+  .btn{padding:16px 22px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .marquee .track{flex-wrap:wrap;width:auto;justify-content:center}
+  .marquee .track .lg:nth-child(n+31){display:none}
+}
+</style>
+</head><body>
+
+<div class="mockbar"><div class="wrap">
+  <span><b>Maqueta navegable · v2</b> · Referencia de diseño y contenido para montar en Mobirise · 16 nov 2026</span>
+  <button class="devtoggle" id="devtoggle" aria-pressed="false">Ver notas de desarrollo</button>
+</div></div>
+
+<header class="site">
+  <div class="wrap">
+    <a href="#inicio" class="brand" aria-label="Compromiso Bogotá, inicio"><img src="img/marca/CB_logo_principal_color.svg" alt="Compromiso Bogotá"></a>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="main" id="nav">
+      <a href="#inicio" data-r="inicio">Home</a>
+      <a href="#quienes-somos" data-r="quienes-somos">¿Quiénes somos?</a>
+      <a href="#que-hacemos" data-r="que-hacemos">¿Qué hacemos?</a>
+      <a href="#contacto" data-r="contacto">Contacto</a>
+      <a href="#sumate" data-r="sumate" class="cta">Súmate</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- ================= HOME ================= -->
+<div class="page" id="p-inicio">
+  <div class="reel" id="reel" aria-roledescription="carrusel" aria-label="Fotos de Compromiso Bogotá">
+    <span class="dev dev-float">Bloque Mobirise: «Slider» o «Carousel» a pantalla completa, 8 fotos, transición en fundido, 6 s por foto. La frase va como texto fijo encima (no quemada en las fotos).</span>
+    <div class="slide on"><img src="img/fotos/reel1.jpg" alt="Líderes, empresarios y aliados de Compromiso Bogotá reunidos en el aniversario"></div>
+    <div class="slide"><img src="img/fotos/reel2.jpg" alt="Cuatro personas abrazadas en un encuentro de la red"></div>
+    <div class="slide"><img src="img/fotos/reel3.jpg" alt="Abrazo frente a la pantalla de Compromiso Bogotá"></div>
+    <div class="slide"><img src="img/fotos/reel4.jpg" alt="Un empresario y una líder social abrazados"></div>
+    <div class="slide"><img src="img/fotos/reel5.jpg" alt="Grupo posando frente a la pantalla del evento"></div>
+    <div class="slide"><img src="img/fotos/reel6.jpg" alt="Participantes en círculo durante un taller en Suba"></div>
+    <div class="slide"><img src="img/fotos/reel7.jpg" alt="Cuatro mujeres líderes sonriendo"></div>
+    <div class="slide"><img src="img/fotos/reel8.jpg" alt="Conversación animada entre participantes"></div>
+    <div class="claim"><div class="wrap">
+      <div class="row">
+        <h1>Cocreamos oportunidades para que <em>todos vivamos mejor</em></h1>
+        <div style="display:flex;align-items:center"><div class="dots" id="dots"></div><button class="pause" id="pause">Pausar</button></div>
+      </div>
+    </div></div>
+  </div>
+
+  <section>
+    <div class="wrap manif">
+      <div>
+        <div class="manif-txt">
+          <p>Bogotá tiene un enorme potencial de transformación, pero sus actores sociales, públicos y privados trabajan de manera fragmentada y desconectada. Esto limita la confianza, desaprovecha capacidades y dificulta construir soluciones sostenibles a los desafíos de la ciudad.</p>
+          <p>Creemos que, si articulamos redes colaborativas alrededor de liderazgos locales confiables y fortalecidos, podremos construir confianza entre sectores, sumar capacidades y activar soluciones conjuntas que transformen los territorios.</p>
+        </div>
+        <div class="por">
+          <h2>Por eso existe <span>Compromiso Bogotá.</span></h2>
+        </div>
+      </div>
+      <div class="photo-stack" aria-hidden="true">
+        <img class="a" src="img/fotos/mandala.jpg" alt="">
+        <img class="b" src="img/fotos/conexion.jpg" alt="">
+        <span class="c"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="band-yellow">
+    <div class="wrap">
+      <div>
+        <h2>¿Quieres hacer parte de Compromiso Bogotá?</h2>
+        <p>Cada persona y cada organización tiene algo que aportar. Encuentra tu forma de sumar.</p>
+      </div>
+      <div><a class="btn btn-primary" href="#sumate"><span class="dot"></span>Súmate</a></div>
+    </div>
+  </section>
+
+  <section class="statsband">
+    <div class="wrap">
+      <div class="eyebrow">Dos años de Compromiso Bogotá</div>
+      <h2 class="h-l" style="margin-top:14px;max-width:18ch">Una red que ya está generando transformación.</h2>
+      <div class="stats" data-stats></div>
+      <span class="dev">Las cifras suben desde 0 hasta el valor final cuando la sección aparece en pantalla (unos 2 segundos). En Mobirise: bloque «Counters» / «Numbers» con animación de conteo.</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap">
+        <div><div class="eyebrow">Cuatro desafíos</div><h2 class="h-l" style="margin-top:14px;max-width:20ch">Transformamos los territorios desde sus propios desafíos.</h2></div>
+        <a class="btn btn-ghost" href="#que-hacemos">Conoce lo que hacemos</a>
+      </div>
+      <div class="chal-grid" data-chal="short"></div>
+    </div>
+  </section>
+
+  <section class="aliados">
+    <div class="wrap">
+      <div class="eyebrow">¿Quiénes nos respaldan?</div>
+      <h2 class="h-m" style="margin-top:12px">La confianza nos une. La colaboración nos transforma.</h2>
+    </div>
+    <div class="marquee"><div class="track" data-marquee="all"></div></div>
+    <div class="wrap"><span class="dev">Carrusel rotativo de logos al final del Home, justo antes del pie de página. Gira solo y se detiene al pasar el mouse. En Mobirise: bloque «Clients» / «Logos carousel».</span></div>
+  </section>
+</div>
+
+<!-- ================= QUIÉNES SOMOS ================= -->
+<div class="page" id="p-quienes-somos">
+  <div class="phero"><div class="wrap">
+    <div style="position:relative;z-index:1">
+      <div class="eyebrow">¿Quiénes somos?</div>
+      <h1 class="h-xl" style="margin-top:18px">Somos un vehículo de impacto colectivo</h1>
+      <p class="lead">que articula actores diversos y potencia liderazgos para generar acción colectiva y transformar el territorio.</p>
+    </div>
+    <img class="circ" src="img/fotos/quienes.jpg" alt="Un líder y una lideresa conversando en un encuentro de Compromiso Bogotá">
+  </div></div>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">Nuestro diferencial</div>
+      <h2 class="h-l" style="margin-top:14px;max-width:22ch">Hacemos posible lo que nadie lograría por sí solo.</h2>
+      <span class="dev">Este subtítulo es una propuesta de diseño (resume el diferencial 1). Si prefieren, se deja solo «Nuestro diferencial».</span>
+      <div class="difs">
+        <div class="dif"><div class="c">1</div><div><h3>Abordamos desafíos que nadie puede resolver por sí solo</h3><p>Articulamos capacidades, perspectivas y recursos para generar transformaciones que ningún actor lograría individualmente.</p></div></div>
+        <div class="dif"><div class="c">2</div><div><h3>Juntamos actores improbables</h3><p>Conectamos, desde la confianza y un propósito compartido, a actores que difícilmente coincidirían por iniciativa propia.</p></div></div>
+        <div class="dif"><div class="c">3</div><div><h3>Colaboramos desde la dimensión humana</h3><p>Conectamos personas antes que instituciones.</p></div></div>
+        <div class="dif"><div class="c">4</div><div><h3>Involucramos al empresario</h3><p>Como participante activo de la transformación territorial, más allá de su aporte económico, movilizando su liderazgo, conocimiento y capacidades.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote">
+    <div class="wrap">
+      <h2>La confianza nos une. <span class="l2">La colaboración nos transforma.</span></h2>
+      <p>Creemos que la transformación de Bogotá comienza cuando aprendemos a confiar, reconocernos y trabajar juntos. Porque es en la colaboración donde las capacidades individuales se convierten en fuerza colectiva y donde hacemos posible lo que solos no podríamos lograr.</p>
+    </div>
+  </section>
+
+
+  <section class="band-yellow">
+    <div class="wrap">
+      <div><h2>Tu organización puede estar aquí.</h2><p>Bogotá necesita que más personas y organizaciones se comprometan con su transformación.</p></div>
+      <div><a class="btn btn-primary" href="#sumate"><span class="dot"></span>Súmate</a></div>
+    </div>
+  </section>
+
+  <section class="aliados">
+    <div class="wrap">
+      <div class="eyebrow">Aliados</div>
+      <h2 class="h-l" style="margin-top:14px">¿Quiénes nos respaldan?</h2>
+    </div>
+    <div class="marquee"><div class="track" data-marquee="a"></div></div>
+    <div class="marquee rev"><div class="track" data-marquee="b"></div></div>
+    <div class="wrap"><span class="dev">Carrusel rotativo continuo con los 30 aliados en dos filas que giran en sentidos opuestos y se detienen al pasar el mouse. Mismo orden del backing del aniversario (v3). En Mobirise: bloque «Clients» / «Logos carousel». Varios logos están en baja resolución (Origen, Compromiso Valle, Fundación ANDI, Colombia Cuida a Colombia, Texmoda, Bivien, Terpel, SoyDoy, ANDI): pedir los originales a cada aliado.</span></div>
+  </section>
+</div>
+
+<!-- ================= QUÉ HACEMOS ================= -->
+<div class="page" id="p-que-hacemos">
+  <div class="phero"><div class="wrap">
+    <div style="position:relative;z-index:1">
+      <div class="eyebrow">¿Qué hacemos?</div>
+      <h1 class="h-xl" style="margin-top:18px">Nuestra apuesta en el territorio</h1>
+      <p class="lead">Fortalecemos liderazgos y movilizamos a organizaciones, empresas y aliados para construir respuestas colectivas a los desafíos de cada territorio.</p>
+      <span class="dev">Esta bajada es una propuesta de síntesis de la sección. Se puede quitar.</span>
+    </div>
+    <img class="circ" src="img/fotos/tablero.jpg" alt="Lideresa escribiendo compromisos en un tablero">
+  </div></div>
+
+  <section>
+    <div class="wrap lid">
+      <div class="img"><img src="img/fotos/liderazgo.jpg" alt="Líderes en tarima durante un panel de Compromiso Bogotá"></div>
+      <div>
+        <span class="transv">Un eje transversal que fortalece todos los procesos</span>
+        <h2 class="h-l">Fortalecimiento del liderazgo</h2>
+        <p style="margin-top:18px">Impulsamos a líderes sociales para que desarrollen habilidades personales, relaciones sólidas y competencias organizacionales que les permitan movilizar a sus comunidades y participar estratégicamente en redes colaborativas.</p>
+        <div class="buscamos"><span class="c" aria-hidden="true"></span><div><b>¿Qué buscamos?</b>Iniciativas fortalecidas, liderazgos con capacidades ampliadas y mayor incidencia territorial.</div></div>
+        <p class="muted" style="margin-top:20px">El fortalecimiento de los liderazgos es transversal a nuestro trabajo: son ellos quienes movilizan a sus comunidades, conectan actores y contribuyen a sostener los procesos de transformación en el territorio.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="terr">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Territorios</div>
+        <h2 class="h-l" style="margin-top:14px">Transformamos los territorios desde sus propios desafíos.</h2>
+        <p style="margin-top:18px">Cada territorio tiene necesidades, oportunidades y dinámicas propias. Por eso, identificamos sus desafíos prioritarios y movilizamos liderazgos, organizaciones, empresas y otros aliados para construir respuestas colectivas.</p>
+        <p style="margin-top:14px;font-weight:700">Hoy, desde Suba, proyectamos nuestro trabajo hacia Fontibón y Engativá, llevando esta apuesta de colaboración a nuevos territorios de Bogotá.</p>
+      </div>
+      <div class="route" aria-label="Territorios de Compromiso Bogotá">
+        <div class="loc hoy"><div class="c">Hoy</div><div><h3>Suba</h3><span>Donde nace y trabaja hoy la red</span></div></div>
+        <div class="loc prox"><div class="c">Próximo</div><div><h3>Fontibón</h3><span>Nuevo territorio en proyección</span></div></div>
+        <div class="loc prox"><div class="c">Próximo</div><div><h3>Engativá</h3><span>Nuevo territorio en proyección</span></div></div>
+        <span class="dev">Las tres localidades como etiquetas (lo acordado). Si el desarrollador puede, se cambia por un mapa simple de Bogotá con Suba resaltada.</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">Cuatro desafíos</div>
+      <h2 class="h-l" style="margin-top:14px;max-width:24ch">Donde concentramos la acción colectiva</h2>
+      <div class="chal-grid" data-chal="full"></div>
+      <span class="dev">Cada botón «Quiero sumarme a esta iniciativa» lleva al formulario de Súmate con el desafío ya marcado. Las respuestas llegan a angelica@compromisobogota.com.</span>
+    </div>
+  </section>
+
+  <section class="statsband">
+    <div class="wrap">
+      <div class="eyebrow">Dos años de Compromiso Bogotá</div>
+      <h2 class="h-l" style="margin-top:14px;max-width:18ch">Una red que ya está generando transformación.</h2>
+      <div class="stats" data-stats></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= SÚMATE ================= -->
+<div class="page" id="p-sumate">
+  <div class="phero"><div class="wrap">
+    <div style="position:relative;z-index:1">
+      <div class="eyebrow">¿Cómo te puedes sumar?</div>
+      <h1 class="h-xl" style="margin-top:18px">Bogotá necesita que más personas y organizaciones se comprometan con su transformación.</h1>
+      <p class="lead">Cada actor tiene algo que aportar: conocimiento, experiencia, talento, capacidades, recursos y oportunidades. Hay muchas formas de sumar. Encuentra la tuya y hagamos que las cosas pasen juntos.</p>
+    </div>
+    <img class="circ" src="img/fotos/sumate.jpg" alt="Intercambio de manillas entre participantes">
+  </div></div>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">Paso 1 · Elige tu perfil</div>
+      <div class="profiles" id="profiles"></div>
+      <span class="dev">En Mobirise: cuatro pestañas («Tabs») o cuatro formularios en acordeón. Cada formulario se arma con el «Form Builder» y envía a angelica@compromisobogota.com. El asunto del correo debe decir el perfil, por ejemplo «Súmate · Empresa».</span>
+
+      <div class="formcard" id="formcard">
+        <div class="intro">
+          <div class="eyebrow">Paso 2 · Cuéntanos de ti</div>
+          <h2 id="f-title" style="margin-top:14px"></h2>
+          <p id="f-desc"></p>
+          <img src="img/fotos/equipo.jpg" alt="Equipo de Compromiso Bogotá">
+        </div>
+        <div>
+          <form id="form" novalidate>
+            <div class="iniciativa-pill" id="ini-pill"></div>
+            <div class="grid" id="f-fields"></div>
+            <fieldset><legend>¿Cómo te gustaría aportar?</legend><div class="checks" id="f-checks"></div>
+              <div class="otro" id="otro-wrap" hidden><label class="l" for="f-otro">¿Cuál?</label><input type="text" id="f-otro" style="margin-top:7px"></div>
+            </fieldset>
+            <label class="legal" for="f-legal"><input type="checkbox" id="f-legal"><span>Autorizo a Compromiso Bogotá a tratar mis datos personales para contactarme y vincularme a la red, según la <a href="#politica-de-datos">Política de tratamiento de datos personales</a> (Ley 1581 de 2012). <span class="req" style="color:var(--ladrillo)">*</span></span></label>
+            <div class="submit"><button class="btn btn-primary" type="submit"><span class="dot"></span>Quiero sumarme a Compromiso Bogotá</button><span class="err" id="f-err" role="alert"></span></div>
+            <span class="dev">Se agregó el campo «Correo electrónico» (no estaba en el documento guía) para poder responder por escrito. La casilla de datos personales es obligatoria para enviar.</span>
+          </form>
+          <div class="ok" role="status"><div class="c">✓</div><h3>¡Hagamos equipo por Bogotá!</h3><p class="muted">Recibimos tu información. Pronto te escribiremos para conocerte y explorar juntos cómo sumar.</p><p style="margin-top:20px"><button class="btn btn-ghost" id="again" type="button">Enviar otro registro</button></p>
+          <span class="dev">Mensaje de confirmación después de enviar. En esta maqueta no se envía nada.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= CONTACTO ================= -->
+<div class="page" id="p-contacto">
+  <div class="phero"><div class="wrap">
+    <div style="position:relative;z-index:1">
+      <div class="eyebrow">Contacto</div>
+      <h1 class="h-xl" style="margin-top:18px">Conversemos</h1>
+      <p class="lead">Escríbenos para conocer la red, proponer una alianza o sumar a tu organización.</p>
+    </div>
+    <img class="circ" src="img/fotos/equipo.jpg" alt="Equipo de Compromiso Bogotá">
+  </div></div>
+  <section>
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="person"><div class="c">MJ</div><div><h3>María José Rubio</h3><div class="role">Directora Ejecutiva</div><div class="mail"><a href="mailto:maria@compromisobogota.com">maria@compromisobogota.com</a><button class="copy" data-copy="maria@compromisobogota.com">Copiar</button></div></div></div>
+        <div class="person"><div class="c">AO</div><div><h3>Angélica Ortiz</h3><div class="role">Directora de Alianzas e Innovación</div><div class="mail"><a href="mailto:angelica@compromisobogota.com">angelica@compromisobogota.com</a><button class="copy" data-copy="angelica@compromisobogota.com">Copiar</button></div></div></div>
+      </div>
+      <div class="socials">
+        <a class="soc" href="https://www.linkedin.com/in/compromiso-bogota-a57696374" target="_blank" rel="noopener"><svg viewBox="0 0 38 38" aria-hidden="true"><circle cx="19" cy="19" r="19" fill="#3A3D42"/><path fill="#fff" d="M12 15.5h3v10h-3zM13.5 10.6a1.75 1.75 0 1 1 0 3.5 1.75 1.75 0 0 1 0-3.5zM17.2 15.5h2.9v1.4c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.6 2 3.6 4.6v5.6h-3v-5c0-1.2 0-2.7-1.6-2.7s-1.9 1.3-1.9 2.6v5.1h-2.9z"/></svg>LinkedIn</a>
+        <a class="soc" href="https://www.instagram.com/compromisobogota" target="_blank" rel="noopener"><svg viewBox="0 0 38 38" aria-hidden="true"><circle cx="19" cy="19" r="19" fill="#D2452D"/><rect x="11" y="11" width="16" height="16" rx="4.5" fill="none" stroke="#fff" stroke-width="2"/><circle cx="19" cy="19" r="3.8" fill="none" stroke="#fff" stroke-width="2"/><circle cx="23.6" cy="14.4" r="1.1" fill="#fff"/></svg>Instagram · @compromisobogota</a>
+      </div>
+      <span class="dev">LinkedIn oficial confirmado: linkedin.com/in/compromiso-bogota-a57696374. Reemplaza el enlace que hoy tiene el sitio (/in/compromiso-bogota-7449b0337).</span>
+      <div class="city">
+        <div class="t"><div class="eyebrow" style="color:var(--amarillo)">Dónde estamos</div><h2 class="h-m" style="margin-top:12px">Bogotá, Colombia</h2><p style="margin-top:10px;color:#E9E6E0">Trabajamos en Suba y proyectamos nuestra labor hacia Fontibón y Engativá.</p><p style="margin-top:24px"><a class="btn btn-yellow" href="#sumate"><span class="dot"></span>Súmate</a></p></div>
+        <img src="img/fotos/reel1.jpg" alt="Encuentro de la red Compromiso Bogotá">
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= POLÍTICA DE DATOS ================= -->
+<div class="page" id="p-politica-de-datos">
+  <section>
+    <div class="wrap">
+      <div class="policy">
+        <div class="eyebrow">Legal</div>
+        <h1 class="h-l" style="margin-top:14px">Política de tratamiento de datos personales</h1>
+        <div class="notice"><b>Borrador para revisión jurídica.</b> Compromiso Bogotá aún no está constituida. La ley exige nombrar a un responsable identificable (una entidad o una persona) que responda por los datos mientras tanto. Ese dato va en el campo resaltado.</div>
+        <span class="dev">Texto base según la Ley 1581 de 2012 y el Decreto 1074 de 2015 (que recoge el Decreto 1377 de 2013). Debe revisarlo un abogado antes de publicarse.</span>
+
+        <h2>1. Responsable del tratamiento</h2>
+        <p>Compromiso Bogotá es una iniciativa de impacto colectivo en proceso de constitución, con sede en Bogotá, Colombia. Mientras se constituye, el responsable del tratamiento de los datos es <span class="ph">[entidad aliada o persona que asume la responsabilidad, con su NIT o documento]</span>. Cuando Compromiso Bogotá se constituya legalmente, asumirá esta responsabilidad y actualizará esta política. Correo de contacto para asuntos de datos personales: angelica@compromisobogota.com.</p>
+
+        <h2>2. Datos que recogemos</h2>
+        <p>A través de los formularios de este sitio recogemos: nombre de la organización o empresa, nombre del director(a), representante legal o empresario, descripción o misionalidad de la organización, teléfono de contacto, correo electrónico y las formas en que la persona desea aportar a la red. No recogemos datos sensibles ni datos de niños, niñas o adolescentes a través del sitio.</p>
+
+        <h2>3. Para qué usamos los datos</h2>
+        <ul>
+          <li>Contactar a quien se registra y conocer su organización.</li>
+          <li>Vincularla a la red, a sus espacios de colaboración y a las iniciativas de su interés.</li>
+          <li>Enviar información sobre actividades, convocatorias y eventos de Compromiso Bogotá.</li>
+          <li>Elaborar estadísticas internas sobre la red, sin identificar a las personas.</li>
+        </ul>
+
+        <h2>4. Derechos de los titulares</h2>
+        <p>Como titular de los datos, usted puede:</p>
+        <ul>
+          <li>Conocer, actualizar y rectificar sus datos personales.</li>
+          <li>Solicitar prueba de la autorización otorgada.</li>
+          <li>Ser informado sobre el uso que se ha dado a sus datos.</li>
+          <li>Presentar quejas ante la Superintendencia de Industria y Comercio.</li>
+          <li>Revocar la autorización o pedir la supresión de sus datos cuando no se respeten los principios, derechos y garantías de la ley.</li>
+          <li>Acceder de forma gratuita a sus datos personales.</li>
+        </ul>
+
+        <h2>5. Cómo ejercer sus derechos</h2>
+        <p>Escriba a angelica@compromisobogota.com con su nombre, documento de identidad y la solicitud. Las consultas se responden en un máximo de diez (10) días hábiles y los reclamos en un máximo de quince (15) días hábiles, plazos que pueden ampliarse según lo previsto en la ley, informando el motivo.</p>
+
+        <h2>6. Seguridad y conservación</h2>
+        <p>Los datos se guardan con medidas razonables de seguridad y se conservan mientras la persona u organización haga parte de la red o mientras sean necesarios para las finalidades descritas.</p>
+
+        <h2>7. Vigencia</h2>
+        <p>Esta política rige desde <span class="ph">[fecha de publicación]</span>. Cualquier cambio importante se informará en este sitio.</p>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <img class="logo" src="img/marca/CB_logo_negativo_color.svg" alt="Compromiso Bogotá">
+        <p class="tag">Cocreamos oportunidades para que todos vivamos mejor.</p>
+      </div>
+      <div><h4>Navega</h4><ul><li><a href="#inicio">Home</a></li><li><a href="#quienes-somos">¿Quiénes somos?</a></li><li><a href="#que-hacemos">¿Qué hacemos?</a></li><li><a href="#sumate">Súmate</a></li><li><a href="#contacto">Contacto</a></li></ul></div>
+      <div><h4>Escríbenos</h4><ul><li>maria@compromisobogota.com</li><li>angelica@compromisobogota.com</li><li>Bogotá, Colombia</li></ul></div>
+      <div><h4>Síguenos</h4><ul><li><a href="https://www.linkedin.com/in/compromiso-bogota-a57696374" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.instagram.com/compromisobogota" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+    </div>
+    <div class="bottom"><span>© 2026 Compromiso Bogotá · compromisobogota.com</span><a href="#politica-de-datos">Política de tratamiento de datos personales</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // ---------- Datos ----------
+  const STATS=[
+    {n:"230",t:"Líderes formados y conectados en espacios colaborativos."},
+    {n:"+500",t:"Conexiones generadas con oportunidades (empresas y fundaciones)."},
+    {n:"+150",t:"Emprendimientos fortalecidos."},
+    {n:"+2.500",t:"Conexiones en empleabilidad."},
+    {n:"30",t:"Organizaciones vinculadas: 20 empresas y 10 ONG."},
+    {n:"15",t:"Iniciativas colaborativas activas."}
+  ];
+  const CHAL=[
+    {id:"empleabilidad",t:"Empleabilidad juvenil",img:"empleo",
+     s:"Conectamos a jóvenes con oportunidades de empleo formal, pertinente y estable.",
+     d:"Conectamos a jóvenes con oportunidades de empleo formal, pertinente y estable. Articulamos formación para el trabajo, acompañamiento integral y alianzas con empresas para reducir las barreras de acceso al mercado laboral y contribuir al cierre de brechas socioeconómicas."},
+    {id:"emprendimiento",t:"Emprendimiento",img:"emprende",
+     s:"Impulsamos el fortalecimiento de los emprendimientos locales para que sean sostenibles.",
+     d:"Impulsamos el fortalecimiento de los emprendimientos locales para que sean sostenibles, aumenten sus ingresos y accedan a nuevos mercados. Articulamos mentorías, conocimiento, capacidades empresariales y oportunidades comerciales que conecten a los emprendedores con el ecosistema empresarial."},
+    {id:"educacion",t:"Educación",img:"educa",
+     s:"Trabajamos para que niños, niñas y adolescentes fuera del sistema educativo regresen a la escuela.",
+     d:"Trabajamos para que niños, niñas y adolescentes que están fuera del sistema educativo puedan regresar a la escuela y construir mejores oportunidades para su futuro. Promovemos el desarrollo de habilidades para la vida, el acceso al conocimiento tecnológico y el aprovechamiento constructivo del tiempo libre."},
+    {id:"soberania",t:"Soberanía alimentaria y medio ambiente",img:"alimenta",
+     s:"Articulamos redes de apoyo nutricional que acompañan a las comunidades vulnerables.",
+     d:"Articulamos redes de apoyo nutricional que acompañan a las comunidades vulnerables para mejorar sus hábitos alimentarios y fortalecer su acceso a los alimentos, reconociendo las capacidades y recursos presentes en el territorio."}
+  ];
+  const ALIADOS=["Fundación Corona","Origen, red de liderazgo","Fundación Grupo Social","Compartamos con Colombia","Compromiso Valle","Fundación ANDI","Patria","Corona","Compensar","Terpel","ANDI Más País","CESA","Grupo Energía Bogotá","Fundación SoyDoy","The Rockefeller Foundation","OpEPA","Colombia Cuida a Colombia","Global Opportunity Youth Network","BBVA","Sodimac Homecenter","Bivien","Rotary","Grupo Texmoda","Secretaría de Integración Social","Asobancaria","Fundación Mi Sangre","Inditex","Lagos de Torca","FUMDIR","Secretaría de Educación de Bogotá"];
+  const PERFILES=[
+    {id:"territorio",t:"Soy una organización social del territorio",short:"Organización social del territorio",
+     d:"Haz parte de una red de colaboración que fortalece las iniciativas sociales, potencia los liderazgos locales y abre nuevas oportunidades para tu organización y tu comunidad.",
+     q:"Cuéntanos sobre tu organización",
+     f:["Nombre de la organización","Director(a) o representante legal","¿Cuál es la misionalidad de tu organización?","Teléfono de contacto"],
+     c:["Compartiendo experiencias y aprendizajes.","Participando en espacios de colaboración.","Conectándote con otras organizaciones y aliados.","Fortaleciendo las capacidades de tu iniciativa."]},
+    {id:"privada",t:"Soy una organización social de carácter privado",short:"Organización social de carácter privado",
+     d:"Suma tus capacidades, experiencia y conocimiento para potenciar iniciativas y contribuir a las transformaciones del territorio.",
+     q:"Cuéntanos sobre tu organización",
+     f:["Nombre de la institución","Director(a) o representante legal","¿Cuál es la misionalidad de tu organización?","Teléfono de contacto"],
+     c:["Aportando conocimiento y experiencia.","Compartiendo metodologías.","Movilizando voluntariado.","Acompañando y fortaleciendo iniciativas sociales."]},
+    {id:"empresa",t:"Soy empresario o represento una empresa",short:"Empresario o empresa",
+     d:"Conecta tu propósito empresarial con los desafíos y oportunidades de Bogotá. Tu empresa tiene mucho que aportar: talento, conocimiento, experiencia, recursos y oportunidades para transformar realidades.",
+     q:"Cuéntanos sobre tu empresa",
+     f:["Nombre de la empresa","Nombre del representante o empresario","Core de la empresa","Teléfono de contacto"],
+     c:["Voluntariado corporativo.","Mentorías.","Compartiendo conocimiento y experiencia.","Generando oportunidades laborales o comerciales.","Aportando recursos y capacidades."]},
+    {id:"otra",t:"Soy otro tipo de organización",short:"Otro tipo de organización",
+     d:"Todas las capacidades cuentan. Si representas una organización que quiere contribuir a la transformación de Bogotá, queremos conocerte y explorar posibilidades de colaboración.",
+     q:"Cuéntanos sobre tu organización",
+     f:["Nombre de la organización","Nombre del representante","Descripción breve de la organización","Teléfono de contacto"],
+     c:["Voluntariado.","Mentorías.","Aportando conocimiento y experiencia.","Compartiendo capacidades y recursos."]}
+  ];
+
+  // ---------- Render ----------
+  document.querySelectorAll("[data-stats]").forEach(el=>{
+    el.innerHTML=STATS.map(s=>{const pre=s.n.startsWith("+")?"+":"",v=parseInt(s.n.replace(/[^0-9]/g,""),10);return `<div class="stat"><div class="n"><span class="count" data-pre="${pre}" data-v="${v}">${s.n}</span></div><p>${s.t}</p></div>`}).join("");
+  });
+  document.querySelectorAll("[data-chal]").forEach(el=>{
+    const full=el.dataset.chal==="full";
+    el.innerHTML=CHAL.map((c,i)=>`<article class="chal"><div class="ph"><img src="img/fotos/${c.img}.jpg" alt="${c.t}"><span class="num">${i+1}</span></div><div class="bd"><h3>${c.t}</h3><p>${full?c.d:c.s}</p>${full?`<button class="go" data-ini="${c.id}">Quiero sumarme a esta iniciativa →</button>`:`<a class="go" href="#que-hacemos">Ver más →</a>`}</div></article>`).join("");
+  });
+  const logoImgs=ALIADOS.map((n,i)=>`<img src="img/aliados/a${String(i+1).padStart(2,"0")}.png" alt="${n}" loading="lazy">`);
+  document.querySelectorAll("[data-marquee]").forEach(el=>{
+    const m=el.dataset.marquee,set=m==="a"?logoImgs.slice(0,15):m==="b"?logoImgs.slice(15):logoImgs;
+    const card=x=>`<div class="lg">${x}</div>`;
+    el.innerHTML=set.map(card).join("")+set.map(x=>card(x.replace(/alt="[^"]*"/,'alt="" aria-hidden="true"'))).join("");
+  });
+
+  // ---------- Conteo progresivo de cifras ----------
+  const fmt=n=>n.toLocaleString("es-CO");
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function countUp(el){
+    if(reduce||el.dataset.done)return;el.dataset.done="1";
+    const v=+el.dataset.v,pre=el.dataset.pre,dur=2000,t0=performance.now();
+    (function step(t){const k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=pre+fmt(Math.round(v*e));if(k<1)requestAnimationFrame(step);else el.textContent=pre+fmt(v)})(t0);
+  }
+  const io="IntersectionObserver" in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)countUp(e.target)}),{threshold:.5}):null;
+  document.querySelectorAll(".count").forEach(el=>io&&io.observe(el));
+  function resetCounts(){document.querySelectorAll(".page:not(.on) .count").forEach(el=>{delete el.dataset.done})}
+
+  // ---------- Reel ----------
+  const slides=[...document.querySelectorAll("#reel .slide")],dots=document.getElementById("dots");
+  let cur=0,timer=null,paused=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  slides.forEach((_,i)=>{const b=document.createElement("button");b.setAttribute("aria-label","Foto "+(i+1));b.onclick=()=>{go(i);restart()};dots.appendChild(b)});
+  function go(i){slides[cur].classList.remove("on");dots.children[cur].classList.remove("on");cur=(i+slides.length)%slides.length;slides[cur].classList.add("on");dots.children[cur].classList.add("on")}
+  function restart(){clearInterval(timer);if(!paused)timer=setInterval(()=>go(cur+1),6000)}
+  const pb=document.getElementById("pause");
+  pb.textContent=paused?"Reproducir":"Pausar";
+  pb.onclick=()=>{paused=!paused;pb.textContent=paused?"Reproducir":"Pausar";restart()};
+  dots.children[0].classList.add("on");restart();
+
+  // ---------- Router ----------
+  const ROUTES=["inicio","quienes-somos","que-hacemos","sumate","contacto","politica-de-datos"];
+  function route(){
+    const h=(location.hash||"#inicio").slice(1);const r=ROUTES.includes(h)?h:"inicio";
+    document.querySelectorAll(".page").forEach(p=>p.classList.toggle("on",p.id==="p-"+r));
+    document.querySelectorAll("nav.main a").forEach(a=>a.classList.toggle("on",a.dataset.r===r));
+    nav.classList.remove("open");burger.setAttribute("aria-expanded","false");
+    window.scrollTo(0,0);
+    resetCounts();
+  }
+  const nav=document.getElementById("nav"),burger=document.getElementById("burger");
+  burger.onclick=()=>{const o=nav.classList.toggle("open");burger.setAttribute("aria-expanded",o)};
+  addEventListener("hashchange",route);
+
+  // ---------- Súmate ----------
+  const profEl=document.getElementById("profiles"),card=document.getElementById("formcard");
+  let perfil=PERFILES[0],iniciativa=null;
+  profEl.innerHTML=PERFILES.map((p,i)=>`<button class="prof" type="button" data-p="${p.id}" aria-pressed="${i===0}"><span class="c">${i+1}</span><b>${p.t}</b><span>${p.d.split(".")[0]}.</span></button>`).join("");
+  function slug(s){return s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}
+  function renderForm(){
+    document.getElementById("f-title").textContent=perfil.q;
+    document.getElementById("f-desc").textContent=perfil.d;
+    const fields=[...perfil.f.slice(0,3),perfil.f[3],"Correo electrónico"];
+    document.getElementById("f-fields").innerHTML=fields.map((f,i)=>{
+      const id="f-"+perfil.id+"-"+slug(f),long=/misionalidad|Descripción|Core/.test(f);
+      const type=/Teléfono/.test(f)?"tel":/Correo/.test(f)?"email":"text";
+      return `<div class="fld ${long?"full":""}"><label class="l" for="${id}">${f} <span class="req">*</span></label>${long?`<textarea id="${id}" required></textarea>`:`<input type="${type}" id="${id}" required ${type==="tel"?'inputmode="tel" placeholder="Ej. 300 123 4567"':""}>`}</div>`;
+    }).join("");
+    document.getElementById("f-checks").innerHTML=[...perfil.c,"Otro."].map((c,i)=>`<label class="ck" for="ck-${perfil.id}-${i}"><input type="checkbox" id="ck-${perfil.id}-${i}" value="${c}" ${c==="Otro."?'data-otro="1"':""}>${c}</label>`).join("");
+    document.getElementById("otro-wrap").hidden=true;
+    const pill=document.getElementById("ini-pill");
+    if(iniciativa){pill.classList.add("on");pill.innerHTML=`Te interesa la iniciativa: <b>${iniciativa}</b> · <a href="#" id="ini-x" style="color:var(--ladrillo);font-weight:700">quitar</a>`;document.getElementById("ini-x").onclick=e=>{e.preventDefault();iniciativa=null;renderForm()}}
+    else pill.classList.remove("on");
+    document.getElementById("f-err").textContent="";
+  }
+  profEl.addEventListener("click",e=>{const b=e.target.closest(".prof");if(!b)return;perfil=PERFILES.find(p=>p.id===b.dataset.p);profEl.querySelectorAll(".prof").forEach(x=>x.setAttribute("aria-pressed",x===b));card.classList.remove("sent");renderForm()});
+  document.getElementById("f-checks").addEventListener("change",e=>{if(e.target.dataset.otro)document.getElementById("otro-wrap").hidden=!e.target.checked});
+  document.getElementById("form").addEventListener("submit",e=>{
+    e.preventDefault();const err=document.getElementById("f-err");
+    const empty=[...e.target.querySelectorAll("[required]")].find(x=>!x.value.trim());
+    if(empty){err.textContent="Completa todos los campos marcados con *.";empty.focus();return}
+    if(!e.target.querySelector("#f-checks input:checked")){err.textContent="Elige al menos una forma de aportar.";return}
+    if(!document.getElementById("f-legal").checked){err.textContent="Para enviar, autoriza el tratamiento de tus datos.";return}
+    card.classList.add("sent");card.scrollIntoView({behavior:"smooth",block:"start"});
+  });
+  document.getElementById("again").onclick=()=>{card.classList.remove("sent");document.getElementById("form").reset();renderForm()};
+  document.addEventListener("click",e=>{
+    const b=e.target.closest("[data-ini]");if(!b)return;
+    iniciativa=CHAL.find(c=>c.id===b.dataset.ini).t;renderForm();location.hash="sumate";
+  });
+  renderForm();
+
+  // ---------- Copiar correo ----------
+  document.addEventListener("click",e=>{const b=e.target.closest("[data-copy]");if(!b)return;
+    const done=()=>{b.textContent="Copiado";setTimeout(()=>b.textContent="Copiar",1600)};
+    try{navigator.clipboard.writeText(b.dataset.copy).then(done,()=>{})}catch(_){}
+  });
+
+  // ---------- Notas de desarrollo ----------
+  const dt=document.getElementById("devtoggle");
+  dt.onclick=()=>{const on=document.body.classList.toggle("devmode");dt.setAttribute("aria-pressed",on);dt.textContent=on?"Ocultar notas de desarrollo":"Ver notas de desarrollo"};
+
+  route();
+})();
+</script>
+</body></html>
